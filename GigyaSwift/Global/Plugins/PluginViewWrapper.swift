@@ -80,6 +80,10 @@ class PluginViewWrapper<T: GigyaAccountProtocol>: PluginViewWrapperProtocol {
         pluginViewController = PluginViewController(webBridge: webBridge, pluginEvent: eventHandler!)
 
         let navigationController = UINavigationController(rootViewController: pluginViewController!)
+        
+        navigationController.isNavigationBarHidden = true
+        navigationController.navigationBar.isHidden = true
+        navigationController.navigationItem.hidesBackButton = true
 
         viewController.present(navigationController, animated: true) {
             self.webBridge?.load(html: html)
